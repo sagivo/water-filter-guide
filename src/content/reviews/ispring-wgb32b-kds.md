@@ -36,3 +36,13 @@ Same friendly Big Blue DIY format as the base WGB32B: bracket, housings, in/out 
 Upfront ~$633–$690 with about $150 per year in media: five-year ownership lands near ~$1,383–$1,440 before installation. That's roughly double the base WGB32B's five-year cost — you're paying for the anti-scale stage and the broader target list. Whether that premium is worth it depends on whether your water actually needs it; the [cost calculator](/tools/cost-calculator/) can lay it against the alternatives.
 
 [Check the current price on Amazon](amazon:ispring-wgb32b-kds) — ~$633–$690 is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The iSpring WGB32B-KDS typically sells for ~$633–$690. With ~$170/year upkeep, five-year ownership lands near ~$1,483 plus installation. The media is rated for cartridges roughly every 6–12 months depending on water quality, and it's backed by a 1-year limited warranty plus lifetime US-based tech support.
+
+At 15 GPM it fits larger homes and 4+ bathroom households with heavy simultaneous use; if your peak demand is higher, size up rather than hope — an undersized system drops pressure when showers, laundry, and irrigation run together.
+
+If this one isn't quite right: the [iSpring WGB32B](/filters/ispring-wgb32b/) the cheaper base 3-stage if you don't need KDF; the [APEC CB3](/filters/apec-cb3/) a Big Blue alternative popular with well-water owners. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
+
+**Install-day checklist:** measure your main line (1-inch is the standard these systems are built for), leave room for a bypass valve so maintenance doesn't shut off the house, and confirm drain access for any backwashing stage. A plumber can usually complete the whole job in half a day once these are sorted.
