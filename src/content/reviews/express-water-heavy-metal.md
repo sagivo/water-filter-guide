@@ -36,3 +36,13 @@ The stainless stand simplifies mounting — freestanding in a utility room rathe
 Upfront ~$548–$550 plus about $140 per year: five-year ownership lands near ~$1,248–$1,250 before installation. That's the most expensive of the budget trio (iSpring WGB32B, this, the KDS) — the gauges, stand, and anti-scale stage account for the premium. Run it against the others in the [cost calculator](/tools/cost-calculator/) to see if the extras earn their keep.
 
 [Check the current price on Amazon](amazon:express-water-heavy-metal) — ~$548–$550 is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The Express Water Heavy Metal 3-Stage typically sells for ~$548–$550. With ~$160/year upkeep, five-year ownership lands near ~$1,348 plus installation. The media is rated for cartridges roughly every 6–12 months depending on water quality, and it's backed by a 1-year limited warranty.
+
+The 15 GPM rating covers larger homes and 4+ bathroom households with heavy simultaneous use. Whole-house pressure also depends on your plumbing and incoming pressure, so run your numbers through our [flow sizer](/tools/flow-sizer/) before committing.
+
+If this one isn't quite right: the [iSpring WGB32B](/filters/ispring-wgb32b/) a cheaper general-purpose 3-stage cartridge system; the [SpringWell LCR](/filters/springwell-lcr/) a certified lead-and-cyst system if certification matters. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
+
+**Before you buy:** confirm your main line's pipe size (most whole-house systems expect 1-inch inlet/outlet — adapters exist, but they cost flow), plan a bypass loop so you still have water during maintenance, and check you have floor space plus a nearby drain if the system backwashes. These three checks prevent the most common install-day surprises.
