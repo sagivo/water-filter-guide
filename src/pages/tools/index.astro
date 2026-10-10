@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { SITE_URL } from "../../lib/site";
+import { breadcrumbLd, type Crumb } from "../../lib/schema";
+
+const crumbs: Crumb[] = [
+  { name: "Home", href: "/" },
+  { name: "Tools", href: "/tools/" },
+];
+const tools = [
+  { href: "/tools/flow-sizer/", icon: "🚿", name: "Flow-Rate Sizer", text: "Enter your bathrooms and water source. Get the systems rated for your peak demand.", go: "Size my system" },
+  { href: "/tools/cost-calculator/", icon: "💰", name: "5-Year Cost Calculator", text: "Upfront price plus filter replacements — the true cost of every system we track.", go: "Do the math" },
+  { href: "/tools/water-test-guide/", icon: "🧪", name: "Water Test Interpreter", text: "Got a water test back? Enter your contaminants and get the right system type.", go: "Interpret my test" },
+  { href: "/filters/", icon: "📊", name: "Comparison Chart", text: "Every system side by side: flow rate, capacity, media, certifications and price. Sortable.", go: "Compare systems" },
+  { href: "/accessories/", icon: "🧰", name: "Test Kits & Replacements", text: "Water test kits and replacement filter packs for the systems we recommend.", go: "Find supplies" },
+];
+---
+
+<BaseLayout
+  title="Free Whole House Water Filter Calculators & Tools"
+  description="Free water filter tools: flow-rate sizer, 5-year cost calculator, water test interpreter and a sortable comparison chart of every system we track."
+  canonical={`${SITE_URL}/tools/`}
+  jsonLd={breadcrumbLd(crumbs)}
+>
+  <div class="wrap wide">
+    <Breadcrumbs crumbs={crumbs} />
+    <div class="calc-hero">
+      <h1>Free water filter tools</h1>
+      <p>Turn "which filter should I buy?" into numbers. Every tool runs in your browser, and nothing you enter leaves your device.</p>
+    </div>
+    <div class="tool-grid">
+      {tools.map((t) => (
+        <a class="tool-card" href={t.href}>
+          <div class="tool-icon">{t.icon}</div>
+          <h2 class="h3">{t.name}</h2>
+          <p>{t.text}</p>
+          <span class="go">{t.go}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

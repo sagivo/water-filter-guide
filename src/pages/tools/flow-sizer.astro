@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { MODELS, formatPrice } from "../../data/models";
+import { amazonLink } from "../../lib/amazon";
+import { SITE_NAME, SITE_URL } from "../../lib/site";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Visual from "../../components/Visual.astro";
+import { breadcrumbLd } from "../../lib/schema";
+
+const modelsJson = JSON.stringify(
+  MODELS.map((m) => ({
+    id: m.id, name: m.name, shortName: m.shortName, flowRateGpm: m.flowRateGpm,
+    waterType: m.waterType, score: m.score, price: formatPrice(m),
+    link: amazonLink(m.query, m.asin),
+  }))
+);
+
+const title = "Flow-Rate Sizer — What Size Whole House Water Filter Do I Need?";
+const description =
+  "Enter your bathrooms and water source to find which whole-house water filters are rated for your peak demand. Free sizing tool with system recommendations.";
+const url = `${SITE_URL}/tools/flow-sizer/`;
+
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Tools", href: "/tools/" },
+  { name: "Flow-rate sizer", href: "/tools/flow-sizer/" },
+];
+const jsonLd = [
+  breadcrumbLd(crumbs),
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Whole House Water Filter Flow-Rate Sizer",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    url,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs crumbs={crumbs} />
+    <div class="calc-hero">
+      <h1>What flow rate does your home need?</h1>
+      <p>
+        Size a whole-house filter by <strong>gallons per minute</strong>, not by tank size.
+        Tell us your bathrooms and water source — we'll show the systems rated for your peak demand.
+      </p>
+    </div>
+
+    <div class="calc">
+      <div>
+        <label for="baths">Bathrooms <output id="baths-out">2</output></label>
+        <input id="baths" type="range" min="1" max="6" step="1" value="2" />
+      </div>
+      <div class="row">
+        <div>
+          <label for="source">Water source</label>
+          <select id="source">
+            <option value="city">City / municipal water</option>
+            <option value="well">Private well</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget">Max budget <output id="budget-out">no limit</output></label>
+          <input id="budget" type="range" min="400" max="3500" step="100" value="3500" />
+        </div>
+      </div>
+      <p style="margin-top:1.5rem;"><button class="btn" id="size-btn" type="button">Size my system 🚿</button></p>
+      <div class="calc-result" id="size-result" aria-live="polite"></div>
+    </div>
+
+    <article class="prose" data-pagefind-body>
+      <Visual name="chart:flow" />
+      <h2>How the sizing works</h2>
+      <p>
+        We estimate peak demand as <strong>3 GPM base</strong> (kitchen + laundry) plus
+        <strong>2.5 GPM per bathroom</strong>. A 2-bathroom home needs about 8 GPM at peak —
+        two showers running while the dishwasher fills. Systems are matched at or above
+        that number, then filtered by your water source and budget.
+      </p>
+      <p>
+        Undersized systems don't just slow your shower — low contact time means worse
+        filtration. When in doubt, size up one step: the price difference is small
+        compared to a re-install.
+      </p>
+      <p>
+        Once you know your flow rate, check the <a href="/tools/cost-calculator/">5-year cost
+        calculator</a> — the cheapest system to buy is rarely the cheapest to own.
+        For the full picture, read <a href="/posts/how-to-choose-whole-house-water-filter/">how to
+        choose a whole-house water filter</a>.
+      </p>
+    </article>
+  </div>
+
+  <script define:vars={{ modelsJson }}>
+    const MODELS = JSON.parse(modelsJson);
+    const $ = (id) => document.getElementById(id);
+    const baths = $("baths"), budget = $("budget");
+
+    function paint(el) {
+      const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
+      el.style.setProperty("--fill", pct + "%");
+    }
+    function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+
+    // Prefill from homepage matcher (?baths=3&source=well)
+    const q = new URLSearchParams(location.search);
+    if (q.get("baths")) baths.value = Math.min(6, Math.max(1, +q.get("baths")));
+    if (q.get("source") === "well") $("source").value = "well";
+
+    function sync() {
+      [baths, budget].forEach(paint);
+      $("baths-out").textContent = baths.value;
+      $("budget-out").textContent = +budget.value >= 3500 ? "no limit" : "$" + fmt(budget.value);
+    }
+    [baths, budget].forEach((el) => el.addEventListener("input", sync));
+    sync();
+
+    function needGpm(b) { return 3 + b * 2.5; }
+
+    $("size-btn").addEventListener("click", () => {
+      const b = +baths.value;
+      const need = needGpm(b);
+      const src = $("source").value;
+      const maxBudget = +budget.value >= 3500 ? Infinity : +budget.value;
+
+      const picks = MODELS.filter((m) => {
+        const okFlow = m.flowRateGpm >= need;
+        const okSrc = src === "city" ? m.waterType !== "well" : m.waterType !== "city";
+        const price = m.price === "Check price" ? Infinity : parseFloat(m.price.replace(/[^0-9.]/g, "")) || Infinity;
+        return okFlow && okSrc && price <= maxBudget;
+      }).sort((a, b2) => b2.score - a.score);
+
+      const el = $("size-result");
+      if (!picks.length) {
+        el.innerHTML = `<p><strong>No match.</strong> Your home needs about <strong>${need} GPM</strong> at peak. Try raising your budget or checking systems individually on the <a href="/filters/">comparison chart</a>.</p>`;
+        return;
+      }
+      el.innerHTML = `
+        <p>Your home needs about <strong>${need} GPM</strong> at peak demand. ${picks.length} system${picks.length > 1 ? "s" : ""} match${picks.length > 1 ? "" : "es"}:</p>
+        <ol class="calc-picks">
+          ${picks.slice(0, 5).map((m, i) => `
+            <li>
+              <strong><a href="/filters/${m.id}/">${m.name}</a></strong>
+              <span>${m.flowRateGpm} GPM · score ${m.score.toFixed(1)}/10 · ${m.price}</span>
+              <a class="btn btn-xs buy" href="${m.link}" target="_blank" rel="sponsored nofollow noopener">Check price</a>
+            </li>`).join("")}
+        </ol>
+        ${picks.length > 5 ? `<p><a href="/filters/">Compare all ${picks.length} matches →</a></p>` : ""}`;
+    });
+    // Run once on load so shared links show results.
+    $("size-btn").click();
+  </script>
+</BaseLayout>

@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import Visual from "../../components/Visual.astro";
+import { MODELS } from "../../data/models";
+import { SITE_URL } from "../../lib/site";
+import { breadcrumbLd, itemListLd, faqLd, type Crumb } from "../../lib/schema";
+
+const byScore = [...MODELS].sort((a, b) => b.score - a.score);
+const url = `${SITE_URL}/filters/`;
+const crumbs: Crumb[] = [
+  { name: "Home", href: "/" },
+  { name: "Compare filters", href: "/filters/" },
+];
+const faq = [
+  {
+    q: "Which whole-house water filter is the best in 2026?",
+    a: `By our research-based score, the ${byScore[0].name} currently ranks highest (${byScore[0].score}/10). The best system for you depends on your water source (city vs. well), flow needs, and which contaminants matter most — so sort the table by the spec that matters for your home.`,
+  },
+  {
+    q: "How do I size a whole-house water filter?",
+    a: "Size by service flow rate (GPM), not by tank size. Most homes need 8–12 GPM at peak demand — count your bathrooms and simultaneous water users. Our flow-rate sizer does the math in about a minute.",
+  },
+  {
+    q: "What do NSF/ANSI certifications mean on a water filter?",
+    a: "NSF/ANSI 42 covers taste and odor (chlorine), 53 covers health-effect contaminants (lead, PFAS, VOCs), 401 covers emerging compounds like pharmaceuticals, and 58 is for reverse osmosis. Whole-system certification is stronger than component-level certification — check which one a maker actually claims.",
+  },
+];
+const jsonLd = [breadcrumbLd(crumbs), itemListLd("Whole-house water filters compared", byScore), faqLd(faq)];
+
+const brands = [...new Set(MODELS.map((m) => m.brand))].sort();
+---
+
+<BaseLayout
+  title="Whole House Water Filter Comparison Chart (2026)"
+  description={`Compare ${MODELS.length} whole-house water filters side by side: flow rate, capacity, media, certifications, price and our score. Sortable chart.`}
+  canonical={url}
+  jsonLd={jsonLd}
+>
+  <div class="wrap wide">
+    <Breadcrumbs crumbs={crumbs} />
+    <div class="calc-hero" data-pagefind-body>
+      <h1>Whole-house water filter comparison chart</h1>
+      <p>
+        Every system we track, side by side. Click any column to sort by it.
+        Covers {MODELS.length} systems from {brands.join(", ")}.
+      </p>
+    </div>
+
+    <ComparisonTable models={byScore} sortable caption="Whole-house water filters, sorted by Guide score (click headers to re-sort)" />
+    <p class="fine">Flow rates and capacities are manufacturer ratings. Prices are typical US street prices as of October 2026 and change often.</p>
+
+    <div class="section-head"><h2 class="section-title">Flow and value at a glance</h2></div>
+    <div class="viz-pair">
+      <Visual name="chart:flow" />
+      <Visual name="chart:value" />
+    </div>
+
+    <div class="section-head"><h2 class="section-title">Highest-rated systems</h2></div>
+    <div class="tp-grid">
+      {byScore.slice(0, 6).map((m, i) => <ProductCard model={m} rank={i + 1} label="Top rated" />)}
+    </div>
+
+    <div class="prose" style="margin-top:3rem;">
+      <h2>How to read this chart</h2>
+      <p>
+        <strong>Flow</strong> is the manufacturer's rated service flow in gallons per minute. Size for
+        peak demand, not the average — our <a href="/tools/flow-sizer/">flow-rate sizer</a> does that math for you.
+        <strong>Capacity</strong> is how many gallons the media treats before replacement: tank systems
+        run 500,000–1,000,000+ gallons, cartridge systems 100,000–250,000.
+        <strong>Certifications</strong> are the trust layer: whole-system NSF/ANSI certification beats
+        component-level marks, which beats maker claims. Our
+        <a href="/posts/pfas-forever-chemicals-filter-guide/">PFAS guide</a> explains which standards matter for "forever chemicals".
+      </p>
+      <section class="faq" aria-label="FAQ">
+        <h2>FAQ</h2>
+        {faq.map((f) => <details><summary>{f.q}</summary><div>{f.a}</div></details>)}
+      </section>
+    </div>
+  </div>
+</BaseLayout>

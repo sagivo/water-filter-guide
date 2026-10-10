@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { SITE_NAME, SITE_URL } from "../lib/site";
+import { breadcrumbLd, type Crumb } from "../lib/schema";
+
+const crumbs: Crumb[] = [
+  { name: "Home", href: "/" },
+  { name: "How we research", href: "/how-we-research/" },
+];
+---
+
+<BaseLayout
+  title="How We Research & Score Whole House Water Filters"
+  description={`How ${SITE_NAME} researches whole-house water filters: where our specs come from, how the 10-point score works, how we handle affiliate links, and how often guides are updated.`}
+  canonical={`${SITE_URL}/how-we-research/`}
+  jsonLd={breadcrumbLd(crumbs)}
+>
+  <div class="wrap post-wrap">
+    <Breadcrumbs crumbs={crumbs} />
+    <article class="prose">
+      <h1>How we research and score water filters</h1>
+      <p class="lead-p">
+        We'd rather tell you exactly how our recommendations are made than imply something they
+        aren't. Here's the process behind every guide, review and calculator on {SITE_NAME}.
+      </p>
+
+      <h2>What we do (and don't do)</h2>
+      <p>
+        {SITE_NAME} is a <strong>research-based</strong> buyer's guide. We don't run a lab, we don't
+        plumb systems into test rigs, and our reviews are not hands-on tests. Instead, for every system we:
+      </p>
+      <ul>
+        <li><strong>Start from the manufacturer's spec sheet</strong>: flow rate, media capacity, media type, certification claims, warranty terms.</li>
+        <li><strong>Verify certifications</strong> against NSF and WQA listings where possible, and distinguish whole-system certification from component-level marks and maker claims — the distinction matters enormously in this category.</li>
+        <li><strong>Cross-check with independent reviews</strong> from publications that do test, and note where their results differ from the marketing claims.</li>
+        <li><strong>Read owner reports</strong> (forums, retailer reviews, support threads) for the problems that only show up after months of use: pressure drop, cartridge costs, install surprises, support response times.</li>
+        <li><strong>Flag uncertainty.</strong> When a spec can't be confirmed, or sources disagree, we say so rather than guess.</li>
+      </ul>
+      <p>Each system page lists the sources we relied on.</p>
+
+      <h2>How the 10-point score works</h2>
+      <p>Every system gets three sub-scores, each out of 10:</p>
+      <ul>
+        <li><strong>Filtration</strong>: breadth and strength of contaminant reduction, weighted by certification level — independent whole-system certification outranks component marks, which outrank unverified maker claims.</li>
+        <li><strong>Flow rate</strong>: rated service flow against real household needs, with headroom for peak demand.</li>
+        <li><strong>Value</strong>: typical street price against what you get, including five years of filter replacements — not just the sticker price.</li>
+      </ul>
+      <p>
+        The overall score is a weighted blend of the three, rounded to one decimal, plus small adjustments for
+        warranty and support reputation. A 9+ is exceptional, 8–9 is a strong buy for the right home,
+        and under 7.5 means real compromises.
+      </p>
+      <p>
+        A higher score doesn't mean it's the right system for <em>you</em>. A 9.0 PFAS-certified flagship is a bad buy
+        if your water problem is iron. That's why we built the <a href="/tools/water-test-guide/">water test interpreter</a>.
+      </p>
+
+      <h2>Prices</h2>
+      <p>
+        Prices are typical US street prices at the time of our last update and are shown as ranges because
+        water filtration systems are discounted heavily and often. Always check the current price on the retailer page.
+      </p>
+
+      <h2>Affiliate links and independence</h2>
+      <p>
+        {SITE_NAME} is reader-supported. As an Amazon Associate we earn from qualifying purchases made through
+        our links, at no extra cost to you. Commissions never decide which products we recommend or how they
+        are ranked. Brands cannot pay for placement, and we don't accept free products in exchange for coverage.
+      </p>
+
+      <h2>Updates and corrections</h2>
+      <p>
+        We review our main buying guides at least quarterly and whenever a significant
+        system launches. Each page shows its last-updated date. Spot an error? <a href="/contact/">Tell us</a>
+        and we'll fix it.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { MODELS, formatPrice } from "../../data/models";
+import { amazonLink } from "../../lib/amazon";
+import { SITE_URL } from "../../lib/site";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { breadcrumbLd } from "../../lib/schema";
+
+const modelsJson = JSON.stringify(
+  MODELS.map((m) => ({
+    id: m.id, name: m.name, shortName: m.shortName, score: m.score,
+    price: formatPrice(m), link: amazonLink(m.query, m.asin),
+  }))
+);
+
+const title = "Water Test Interpreter — Which Filter Fits Your Contaminants?";
+const description =
+  "Got a water test back? Check the contaminants it found and get the right whole-house system type — plus the specific models that handle them.";
+const url = `${SITE_URL}/tools/water-test-guide/`;
+
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Tools", href: "/tools/" },
+  { name: "Water test interpreter", href: "/tools/water-test-guide/" },
+];
+const jsonLd = [
+  breadcrumbLd(crumbs),
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Water Test Result Interpreter",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    url,
+  },
+];
+
+const CONTAMINANTS = [
+  { key: "chlorine", label: "Chlorine taste / smell", note: "The most common city-water complaint." },
+  { key: "chloramine", label: "Chloramine", note: "Harder to remove than chlorine — needs catalytic carbon." },
+  { key: "pfas", label: "PFAS / PFOA / PFOS (\"forever chemicals\")", note: "Needs NSF/ANSI 53-rated media." },
+  { key: "lead", label: "Lead", note: "Old pipes or service lines." },
+  { key: "fluoride", label: "Fluoride", note: "Standard carbon won't touch it." },
+  { key: "iron", label: "Iron / manganese (orange stains)", note: "Well water classic." },
+  { key: "sulfur", label: "Rotten-egg smell (hydrogen sulfide)", note: "Needs KDF or oxidizing media." },
+  { key: "sediment", label: "Sediment / sand / rust particles", note: "A pre-filter handles most of it." },
+  { key: "hardness", label: "Hard water scale", note: "Filters don't soften — you need conditioning." },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs crumbs={crumbs} />
+    <div class="calc-hero">
+      <h1>What did your water test find?</h1>
+      <p>
+        Check every contaminant on your test report (or your utility's water quality report).
+        We'll tell you which system type fits — and which specific models handle it.
+      </p>
+    </div>
+
+    <div class="calc">
+      <fieldset class="check-grid">
+        <legend>Contaminants found</legend>
+        {CONTAMINANTS.map((c) => (
+          <label class="check">
+            <input type="checkbox" value={c.key} />
+            <span><strong>{c.label}</strong><small>{c.note}</small></span>
+          </label>
+        ))}
+      </fieldset>
+      <p style="margin-top:1.5rem;"><button class="btn" id="test-btn" type="button">Interpret my test 🧪</button></p>
+      <div class="calc-result" id="test-result" aria-live="polite"></div>
+    </div>
+
+    <article class="prose" data-pagefind-body>
+      <h2>No test yet? Get one first.</h2>
+      <p>
+        A $30–$200 water test beats a $1,500 guess. Your utility's annual water quality
+        report (free, search "[your city] water quality report") covers regulated
+        contaminants; a mail-in lab test (Tap Score, MyWaterTest) covers PFAS, lead and
+        well-water minerals the utility doesn't have to report. Buy the filter
+        <em>after</em> the test — never before.
+      </p>
+      <p>
+        Once you know your contaminants, <a href="/tools/flow-sizer/">size the system</a>
+        for your home's flow rate, then check the <a href="/tools/cost-calculator/">5-year
+        cost calculator</a> before you buy. Our <a href="/posts/pfas-forever-chemicals-filter-guide/">PFAS
+        guide</a> goes deep on "forever chemicals" specifically.
+      </p>
+    </article>
+  </div>
+
+  <script define:vars={{ modelsJson }}>
+    const MODELS = JSON.parse(modelsJson);
+    const byId = Object.fromEntries(MODELS.map((m) => [m.id, m]));
+
+    // contaminant key -> { blurb, modelIds }
+    const ADVICE = {
+      chlorine: { blurb: "Any carbon system handles chlorine. Pick by flow rate and budget.", ids: ["springwell-cf1", "ispring-wgb32b", "kind-e1000"] },
+      chloramine: { blurb: "Chloramine needs catalytic carbon — standard carbon struggles with it.", ids: ["springwell-cf1", "softpro-chlorine-fluoride", "ispring-wgb32b-kds"] },
+      pfas: { blurb: "Demand NSF/ANSI 53 certification naming PFOA/PFOS. Whole-system certification beats component marks.", ids: ["aquasana-healthshield", "springwell-cf1", "softpro-chlorine-fluoride"] },
+      lead: { blurb: "Lead needs a purpose-built system or KDF media — and a retest after install.", ids: ["springwell-lcr", "ispring-wgb32b-kds", "express-water-heavy-metal"] },
+      fluoride: { blurb: "Standard carbon does not remove fluoride. Bone char or activated alumina does.", ids: ["softpro-chlorine-fluoride"] },
+      iron: { blurb: "Iron and manganese need KDF or oxidizing media, not plain carbon.", ids: ["apec-cb3", "ispring-wgb32b-kds", "express-water-heavy-metal"] },
+      sulfur: { blurb: "Hydrogen sulfide (rotten-egg smell) needs KDF85 or catalytic carbon.", ids: ["apec-cb3", "ispring-wgb32b-kds"] },
+      sediment: { blurb: "A 5-micron sediment pre-filter handles this — every system here includes one.", ids: ["kind-e1000", "ispring-wgb32b"] },
+      hardness: { blurb: "Filters don't soften water. You need a salt-free conditioner or a true softener alongside filtration.", ids: ["pelican-pse2000", "kind-e1000"] },
+    };
+
+    document.getElementById("test-btn").addEventListener("click", () => {
+      const checked = [...document.querySelectorAll(".check-grid input:checked")].map((el) => el.value);
+      const el = document.getElementById("test-result");
+      if (!checked.length) {
+        el.innerHTML = "<p>Check at least one contaminant above — or <a href=\"/filters/\">browse all systems</a>.</p>";
+        return;
+      }
+      const seen = new Set();
+      const sections = checked.map((key) => {
+        const a = ADVICE[key];
+        const models = a.ids.filter((id) => !seen.has(id) && (seen.add(id), true));
+        return { ...a, models };
+      });
+      el.innerHTML = sections.map((s) => `
+        <div class="test-section">
+          <p><strong>→</strong> ${s.blurb}</p>
+          <ol class="calc-picks">
+            ${s.models.map((id) => { const m = byId[id]; return `
+              <li>
+                <strong><a href="/filters/${m.id}/">${m.name}</a></strong>
+                <span>score ${m.score.toFixed(1)}/10 · ${m.price}</span>
+                <a class="btn btn-xs buy" href="${m.link}" target="_blank" rel="sponsored nofollow noopener">Check price</a>
+              </li>`; }).join("")}
+          </ol>
+        </div>`).join("") +
+        `<p class="fine">General guidance only — confirm contaminant claims against the maker's current spec sheet and your test levels before buying.</p>`;
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { MODELS } from "../../data/models";
+import { amazonLink } from "../../lib/amazon";
+import { SITE_URL } from "../../lib/site";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Visual from "../../components/Visual.astro";
+import { breadcrumbLd } from "../../lib/schema";
+
+const modelsJson = JSON.stringify(
+  MODELS.filter((m) => m.priceLow != null && m.annualFilterCost != null).map((m) => ({
+    id: m.id, name: m.name, shortName: m.shortName,
+    upfront: m.priceLow, annual: m.annualFilterCost,
+    link: amazonLink(m.query, m.asin),
+  }))
+);
+
+const title = "Whole House Water Filter Cost Calculator — True 5-Year Cost";
+const description =
+  "Compare the true cost of whole-house water filters: upfront price plus five years of replacement filters. See which system is actually cheapest to own.";
+const url = `${SITE_URL}/tools/cost-calculator/`;
+
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Tools", href: "/tools/" },
+  { name: "Cost calculator", href: "/tools/cost-calculator/" },
+];
+const jsonLd = [
+  breadcrumbLd(crumbs),
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Whole House Water Filter 5-Year Cost Calculator",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    url,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs crumbs={crumbs} />
+    <div class="calc-hero">
+      <h1>The sticker price is not the price.</h1>
+      <p>
+        A $450 cartridge system with $126/yr filters costs more over five years than
+        a $1,150 tank system with $35/yr upkeep. Drag the years slider to see the true cost.
+      </p>
+    </div>
+
+    <div class="calc">
+      <div>
+        <label for="years">Years of ownership <output id="years-out">5 years</output></label>
+        <input id="years" type="range" min="1" max="10" step="1" value="5" />
+      </div>
+      <div class="calc-result" id="cost-result" aria-live="polite"></div>
+    </div>
+
+    <article class="prose" data-pagefind-body>
+      <Visual name="chart:cost" />
+      <h2>What the numbers usually show</h2>
+      <p>
+        Tank systems (SpringWell, Aquasana Rhino, SoftPro) cost more upfront but their
+        million-gallon media lasts a decade — upkeep is often under $50/year. Cartridge
+        systems (iSpring, Express Water, APEC, Kind) start cheap but need $120–$220 in
+        cartridges every year. Cross-over usually happens around year 3–4.
+      </p>
+      <p>
+        These are estimates from manufacturer filter pricing as of October 2026; your
+        water quality changes cartridge life. Confirm replacement prices on Amazon before
+        buying — they're linked from each <a href="/filters/">system review</a>.
+      </p>
+      <p>
+        Ready to pick one? Use the <a href="/tools/flow-sizer/">flow-rate sizer</a> to
+        find systems rated for your home, or read our <a href="/posts/best-whole-house-water-filters-2026/">best whole-house water filters of 2026</a> roundup.
+      </p>
+    </article>
+  </div>
+
+  <script define:vars={{ modelsJson }}>
+    const MODELS = JSON.parse(modelsJson);
+    const $ = (id) => document.getElementById(id);
+    const years = $("years");
+
+    function paint(el) {
+      const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
+      el.style.setProperty("--fill", pct + "%");
+    }
+    const fmt = (n) => "$" + Math.round(n).toLocaleString("en-US");
+
+    function render() {
+      paint(years);
+      const y = +years.value;
+      $("years-out").textContent = y + (y === 1 ? " year" : " years");
+      const rows = MODELS.map((m) => ({
+        ...m,
+        total: m.upfront + m.annual * y,
+      })).sort((a, b) => a.total - b.total);
+      const max = rows[rows.length - 1].total;
+      $("cost-result").innerHTML = `
+        <p><strong>True cost over ${y} year${y === 1 ? "" : "s"}:</strong></p>
+        <ol class="calc-picks">
+          ${rows.map((m) => `
+            <li>
+              <strong><a href="/filters/${m.id}/">${m.shortName}</a></strong>
+              <span class="cost-bar" aria-hidden="true"><i style="width:${(m.total / max) * 100}%"></i></span>
+              <span>${fmt(m.total)} <small>(${fmt(m.upfront)} + ${fmt(m.annual)}/yr)</small></span>
+              <a class="btn btn-xs buy" href="${m.link}" target="_blank" rel="sponsored nofollow noopener">Check price</a>
+            </li>`).join("")}
+        </ol>
+        <p class="fine">Estimates from maker filter pricing, October 2026. Verify current prices before buying.</p>`;
+    }
+    years.addEventListener("input", render);
+    render();
+  </script>
+</BaseLayout>
