@@ -36,3 +36,13 @@ Standard Big Blue DIY install: wall-mount, plumb, done. Maintenance is the cost 
 The system price is UNVERIFIED — we couldn't pin down a reliable figure. Annual replacements run about $220, so five years of ownership adds roughly $1,100 to whatever the system costs. That's a meaningful premium over the iSpring's ~$126 per year — you're paying for the KDF85 stage. Verify the system price and run the total in the [cost calculator](/tools/cost-calculator/) before committing.
 
 [Check the current price on Amazon](amazon:apec-cb3) — we couldn't verify a current price, so check the current price on Amazon before deciding.
+
+## Ownership math and close alternatives
+
+The APEC CB3 street pricing moves around, so [check the current price](amazon:apec-cb3) before deciding. Upkeep runs roughly ~$180/year; run the [cost calculator](/tools/cost-calculator/) for a five-year total on your shortlist. The media is rated for cartridges roughly every 6–12 months depending on water quality, and it's backed by a 1-year limited warranty.
+
+The 12 GPM rating covers larger homes and 4+ bathroom households with heavy simultaneous use. Whole-house pressure also depends on your plumbing and incoming pressure, so run your numbers through our [flow sizer](/tools/flow-sizer/) before committing.
+
+If this one isn't quite right: the [iSpring WGB32B-KDS](/filters/ispring-wgb32b-kds/) a 3-stage with KDF for city-style chlorine loads; the [SpringWell CF1](/filters/springwell-cf1/) a tank system for city water with decade-long media. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
+
+**Before you buy:** confirm your main line's pipe size (most whole-house systems expect 1-inch inlet/outlet — adapters exist, but they cost flow), plan a bypass loop so you still have water during maintenance, and check you have floor space plus a nearby drain if the system backwashes. These three checks prevent the most common install-day surprises.
