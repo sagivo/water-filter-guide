@@ -1,0 +1,42 @@
+---
+import type { MowerModel } from "../data/models";
+import { accessoriesFor, universalGarages, KIND_LABEL } from "../data/accessories";
+import { AFFILIATE_REL, amazonLink } from "../lib/amazon";
+
+interface Props {
+  model: MowerModel;
+}
+const { model: m } = Astro.props;
+const items = accessoriesFor(m.id);
+const hasGarage = items.some((a) => a.kind === "garage");
+// No official garage on Amazon: suggest roomy universal ones (skip the low wooden one for tall mowers).
+const extras = hasGarage ? [] : universalGarages().filter((g) => !g.fitNote).slice(0, 3);
+const rows = [...items, ...extras];
+---
+
+{rows.length > 0 && (
+  <section class="acc" aria-labelledby="accessories">
+    <h2 id="accessories">Accessories for the {m.shortName}</h2>
+    <p class="acc-intro">
+      {items.length
+        ? `Official and compatible add-ons sold on Amazon. Check the listing confirms your exact model before you buy.`
+        : `We didn't find official ${m.brand} accessories on Amazon, but these universal garages fit most robot mowers. Measure your mower's height first.`}
+    </p>
+    <ul class="acc-list">
+      {rows.map((a) => (
+        <li class="acc-row">
+          <span class="acc-kind">{KIND_LABEL[a.kind]}</span>
+          <div class="acc-main">
+            <strong>{a.name}</strong>
+            <span class="acc-tag">{a.oem ? `Official ${a.brand}` : a.fits.includes("universal") ? "Universal fit" : "Compatible, third-party"}</span>
+            <p>{a.why}{a.fitNote ? ` ${a.fitNote}` : ""}</p>
+          </div>
+          <div class="acc-buy">
+            <a class="btn buy btn-xs" href={amazonLink(a.name, a.asin)} rel={AFFILIATE_REL} target="_blank">Check price</a>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="fine">Compatibility checked October 2026. More in our <a href="/posts/best-robot-mower-garages/">robot mower garage guide</a> and <a href="/posts/robot-mower-replacement-blades/">replacement blade guide</a>.</p>
+  </section>
+)}

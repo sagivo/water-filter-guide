@@ -3,21 +3,21 @@
    buy colour (amber) reserved for Amazon links so the money buttons always
    stand out. */
 :root {
-  --paper: #f2f7fa;
-  --paper-2: #e7f0f6;
+  --paper: #f6f4ec;
+  --paper-2: #eeeadc;
   --card: #ffffff;
-  --ink: #0a1c26;
-  --ink-2: #23404f;
-  --muted: #5b7482;
-  --line: #d9e6ee;
-  --line-2: #c3d7e3;
-  --forest: #06283b;
-  --forest-2: #0a3a55;
-  --forest-3: #0f4f70;
-  --leaf: #0e7fb8;
-  --leaf-2: #1d9fd1;
-  --lime: #7ee0d2;
-  --lime-2: #d6f6f0;
+  --ink: #0b1a10;
+  --ink-2: #2b3a30;
+  --muted: #5d6a60;
+  --line: #e2ddcd;
+  --line-2: #d3cdb9;
+  --forest: #0c2215;
+  --forest-2: #12321e;
+  --forest-3: #1a4529;
+  --leaf: #0e7490;
+  --leaf-2: #0891b2;
+  --lime: #a5f3fc;
+  --lime-2: #cffafe;
   --buy: #ffc21a;
   --buy-hi: #ffd34f;
   --hot: #ff6a3d;
@@ -27,8 +27,8 @@
   --amber-ink: #6b5310;
   --radius: 18px;
   --radius-sm: 12px;
-  --shadow: 0 1px 2px rgba(10, 28, 38, .06), 0 12px 32px -12px rgba(10, 28, 38, .18);
-  --shadow-lg: 0 2px 4px rgba(10, 28, 38, .06), 0 28px 60px -20px rgba(10, 28, 38, .35);
+  --shadow: 0 1px 2px rgba(11, 26, 16, .06), 0 12px 32px -12px rgba(11, 26, 16, .18);
+  --shadow-lg: 0 2px 4px rgba(11, 26, 16, .06), 0 28px 60px -20px rgba(11, 26, 16, .35);
   --press: 0 3px 0 var(--ink);
   --stripes: repeating-linear-gradient(115deg, rgba(255,255,255,.035) 0 60px, rgba(0,0,0,.05) 60px 120px);
   --font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -155,7 +155,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, th:focus-visible, 
 .hero {
   position: relative; overflow: hidden; color: #fff;
   background:
-    radial-gradient(900px 480px at 85% 10%, rgba(126, 224, 210, .16), transparent 60%),
+    radial-gradient(900px 480px at 85% 10%, rgba(165, 243, 252, .16), transparent 60%),
     var(--stripes),
     linear-gradient(165deg, var(--forest) 0%, var(--forest-2) 60%, var(--forest-3) 100%);
   padding: 3.5rem 0 4rem;
@@ -164,10 +164,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, th:focus-visible, 
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 3rem; align-items: center; }
 .hero-kicker {
   display: inline-flex; align-items: center; gap: .5rem; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--lime); background: rgba(126, 224, 210, .1); border: 1px solid rgba(126, 224, 210, .35); border-radius: 999px; padding: .4rem .9rem; margin-bottom: 1.4rem;
+  color: var(--lime); background: rgba(165, 243, 252, .1); border: 1px solid rgba(165, 243, 252, .35); border-radius: 999px; padding: .4rem .9rem; margin-bottom: 1.4rem;
 }
-.hero-kicker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(126,224,210,.25); animation: pulse 2s infinite; }
-@keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(126,224,210,0); } }
+.hero-kicker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(165,243,252,.25); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(165,243,252,0); } }
 .hero h1 { font-size: clamp(2.5rem, 6.2vw, 4.6rem); margin: 0 0 1.2rem; color: #fff; letter-spacing: -.035em; line-height: .98; }
 .hero h1 em { font-style: normal; color: var(--ink); background: var(--lime); padding: 0 .18em; border-radius: .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .hero .lead { font-size: 1.15rem; color: #c9dccd; max-width: 34rem; margin: 0 0 2rem; }
@@ -446,7 +446,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, th:focus-visible, 
 /* ---------- page heroes (hubs, tools) ---------- */
 .calc-hero {
   background:
-    radial-gradient(600px 300px at 90% 0%, rgba(126, 224, 210, .18), transparent 60%),
+    radial-gradient(600px 300px at 90% 0%, rgba(165, 243, 252, .18), transparent 60%),
     var(--stripes), linear-gradient(150deg, var(--forest), var(--forest-3));
   color: #fff; border-radius: 26px; padding: 2.75rem 2.25rem; margin: 1.25rem 0 2rem; position: relative; overflow: hidden;
   border-bottom: 4px solid var(--lime);

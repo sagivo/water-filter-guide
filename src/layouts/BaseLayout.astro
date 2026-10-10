@@ -107,7 +107,6 @@ const [brandFirst, ...brandRest] = SITE_NAME.split(" ");
           {NAV.map((n) => (
             <a href={n.href} aria-current={isActive(n.href) ? "page" : undefined}>{n.label}</a>
           ))}
-          <a class="nav-extra" href="/accessories/">Test kits</a>
           <a class="nav-search" href="/search/" aria-label="Search">
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.4" fill="none"/><path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
             <span class="nav-search-label">Search</span>
@@ -161,7 +160,6 @@ const [brandFirst, ...brandRest] = SITE_NAME.split(" ");
               <li><a href="/tools/cost-calculator/">5-year cost calculator</a></li>
               <li><a href="/tools/water-test-guide/">Water test interpreter</a></li>
               <li><a href="/filters/">Compare all systems</a></li>
-              <li><a href="/accessories/">Test kits & filters</a></li>
             </ul>
           </div>
           <div>
