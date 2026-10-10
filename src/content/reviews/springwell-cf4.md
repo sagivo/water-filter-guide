@@ -40,3 +40,11 @@ Maintenance is minimal. The tank media is rated for up to 1,000,000 gallons, and
 The CF4's price is currently UNVERIFIED — we couldn't pin down a reliable figure at the time of writing. Upkeep runs roughly $35 per year, so over five years add about $175 to whatever you pay for the system. Given the pricing uncertainty, it's worth comparing the total against the [CF1](/filters/springwell-cf1/) with our [cost calculator](/tools/cost-calculator/) before you commit.
 
 [Check the current price on Amazon](amazon:springwell-cf4) — we couldn't verify a current price, so check the current price on Amazon before deciding.
+
+## Ownership math and close alternatives
+
+The SpringWell CF4 street pricing moves around, so [check the current price](amazon:springwell-cf4) before deciding. Upkeep runs roughly ~$35/year; run the [cost calculator](/tools/cost-calculator/) for a five-year total on your shortlist. The media is rated for 1,000,000 gallons (roughly 6–10 years in a typical home), and it's backed by a lifetime warranty on the tank, valves, and housings.
+
+At 12 GPM it fits larger homes and 4+ bathroom households with heavy simultaneous use; if your peak demand is higher, size up rather than hope — an undersized system drops pressure when showers, laundry, and irrigation run together.
+
+If this one isn't quite right: the [SpringWell CF1](/filters/springwell-cf1/) the 9 GPM version suits most 1–4 bath homes and costs less; the [Kind Water E-1000](/filters/kind-e1000/) matches the 15 GPM flow with a wall-mount DIY design. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
