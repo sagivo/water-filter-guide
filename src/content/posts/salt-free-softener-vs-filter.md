@@ -1,7 +1,7 @@
 ---
 title: "Salt-Free Softener vs Water Filter: What Each One Actually Does"
 seoTitle: "Salt-Free Water Softener vs Filter Explained"
-description: "Filters remove contaminants; softeners and conditioners address hardness. What 'salt-free softener' really means, how TAC/NaturSoft works, and when you need both."
+description: "Filters remove contaminants; softeners address hardness. What 'salt-free softener' really means, how TAC conditioning works, and when you need both."
 pubDate: 2026-10-10
 updatedDate: 2026-10-10
 category: explainer
