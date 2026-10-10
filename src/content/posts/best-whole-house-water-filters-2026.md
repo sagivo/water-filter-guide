@@ -1,7 +1,7 @@
 ---
 title: "Best Whole House Water Filters 2026: 12 Systems Compared"
 seoTitle: "Best Whole House Water Filters 2026"
-description: "Research-based comparison of 12 whole house water filter systems for city and well water, covering certifications, flow rate, maintenance cost, and honest trade-offs."
+description: "Research-based comparison of 12 whole house water filter systems for city and well water: certifications, flow rate, maintenance cost, and honest trade-offs."
 pubDate: 2026-10-10
 updatedDate: 2026-10-10
 category: best
