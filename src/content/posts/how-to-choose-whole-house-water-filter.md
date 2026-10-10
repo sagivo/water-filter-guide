@@ -1,7 +1,7 @@
 ---
 title: "How to Choose a Whole House Water Filter: The 5-Step Framework"
 seoTitle: "How to Choose a Whole House Water Filter"
-description: "A research-based 5-step framework for choosing a whole house water filter: test your water, size by flow rate, read certifications, pick tank vs cartridge, and compare 5-year costs."
+description: "A 5-step framework for choosing a whole house water filter: test your water, size flow rate, read certifications, pick tank vs cartridge, compare 5-year costs."
 pubDate: 2026-10-10
 updatedDate: 2026-10-10
 category: guide
