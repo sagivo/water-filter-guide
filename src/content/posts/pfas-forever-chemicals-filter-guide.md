@@ -1,7 +1,7 @@
 ---
 title: "PFAS Forever Chemicals in Water: Which Whole House Filters Actually Help"
 seoTitle: "PFAS Water Filter Guide: Whole House Options"
-description: "What PFAS, PFOA, and PFOS are, why they matter, and which whole house water filter systems have certified PFAS reduction — based on manufacturer specs and independent certifications."
+description: "What PFAS, PFOA, and PFOS are, why they matter, and which whole house filters have certified PFAS reduction — per maker specs and certifications."
 pubDate: 2026-10-10
 updatedDate: 2026-10-10
 category: guide
