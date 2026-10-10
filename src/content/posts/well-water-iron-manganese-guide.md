@@ -1,7 +1,7 @@
 ---
 title: "Well Water Filtration Guide: Iron, Manganese, and Sulfur Smell"
 seoTitle: "Well Water Filter Guide: Iron, Manganese, Sulfur"
-description: "Why well water needs different filtration than city water: iron, manganese, hydrogen sulfide, and sediment — and which systems handle them, based on manufacturer specs and owner reports."
+description: "Why well water needs different filtration than city water — iron, manganese, hydrogen sulfide, sediment — and which systems handle them, per maker specs."
 pubDate: 2026-10-10
 updatedDate: 2026-10-10
 category: guide
