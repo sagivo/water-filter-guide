@@ -36,3 +36,13 @@ Big Blue housings are the friendliest DIY format in whole-house filtration: wall
 Upfront ~$420–$517 plus about $126 per year in cartridges: five-year ownership lands near ~$1,050–$1,147 before installation. That's genuinely cheap for whole-house filtration, but notice how the annual cartridge cost adds up — over a decade, a long-life tank system can catch up on total cost. Run both through the [cost calculator](/tools/cost-calculator/).
 
 [Check the current price on Amazon](amazon:ispring-wgb32b) — ~$420–$517 is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The iSpring WGB32B typically sells for ~$420–$517. With ~$150/year upkeep, five-year ownership lands near ~$1,170 plus installation. The media is rated for cartridges roughly every 6–12 months depending on water quality, and it's backed by a 1-year limited warranty plus lifetime US-based tech support.
+
+At 15 GPM it fits larger homes and 4+ bathroom households with heavy simultaneous use; if your peak demand is higher, size up rather than hope — an undersized system drops pressure when showers, laundry, and irrigation run together.
+
+If this one isn't quite right: the [iSpring WGB32B-KDS](/filters/ispring-wgb32b-kds/) adds KDF and scale-inhibiting media for a bit more; the [Express Water Heavy Metal 3-Stage](/filters/express-water-heavy-metal/) tuned specifically for lead, mercury, and chromium-6. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
+
+**Worth confirming first:** your main water line diameter, since these systems are designed around 1-inch plumbing and downsizing costs you flow rate; whether you want a bypass loop installed (recommended — it keeps water running during filter changes); and physical space near the main shutoff. Get these right and installation is straightforward.
