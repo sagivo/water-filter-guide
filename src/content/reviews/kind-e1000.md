@@ -36,3 +36,13 @@ This is the E-1000's differentiator: it's designed for DIY installation and port
 Upfront runs about ~$770–$976, with replacement media around $180 per year. Five-year ownership lands near ~$1,670–$1,876 before installation (which you may skip if you DIY). That's mid-pack: cheaper to buy than premium tanks, but the annual media cost is higher than the CF1's ~$35.
 
 [Check the current price on Amazon](amazon:kind-e1000) — ~$770–$976 is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The Kind Water E-1000 typically sells for ~$770–$976. With ~$100/year upkeep, five-year ownership lands near ~$1,270 plus installation. The media is rated for media rated for several years; sediment cartridge every 6–12 months, and it's backed by a limited lifetime warranty.
+
+The 15 GPM rating covers larger homes and 4+ bathroom households with heavy simultaneous use. Whole-house pressure also depends on your plumbing and incoming pressure, so run your numbers through our [flow sizer](/tools/flow-sizer/) before committing.
+
+If this one isn't quite right: the [SpringWell CF1](/filters/springwell-cf1/) a true set-and-forget tank with decade-long media; the [Pelican PSE2000](/filters/pelican-pse2000/) adds salt-free scale conditioning in the same cabinet. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
+
+**Before you buy:** confirm your main line's pipe size (most whole-house systems expect 1-inch inlet/outlet — adapters exist, but they cost flow), plan a bypass loop so you still have water during maintenance, and check you have floor space plus a nearby drain if the system backwashes. These three checks prevent the most common install-day surprises.
