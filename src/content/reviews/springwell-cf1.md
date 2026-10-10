@@ -40,3 +40,11 @@ Maintenance is the CF1's quiet strength: the tank media is rated for up to 1,000
 The system itself runs about ~$1,144–$1,160, and upkeep is estimated at roughly $35 per year for the sediment pre-filter. Over five years, that puts total ownership near ~$1,319–$1,335 plus any installation cost — one of the lowest long-run costs in its class, thanks to the long-lived media.
 
 [Check the current price on Amazon](amazon:springwell-cf1) — the price shown here is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The SpringWell CF1 typically sells for ~$1,144–$1,160. With ~$35/year upkeep, five-year ownership lands near ~$1,319 plus installation. The media is rated for 1,000,000 gallons (roughly 6–10 years in a typical home), and it's backed by a lifetime warranty on the tank, valves, and housings.
+
+The 9 GPM rating covers most 1–4 bathroom homes. Whole-house pressure also depends on your plumbing and incoming pressure, so run your numbers through our [flow sizer](/tools/flow-sizer/) before committing.
+
+If this one isn't quite right: the [SpringWell CF4](/filters/springwell-cf4/) steps up to 12 GPM for larger homes; the [iSpring WGB32B](/filters/ispring-wgb32b/) costs far less up front if you accept cartridge swaps. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
