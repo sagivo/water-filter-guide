@@ -38,3 +38,11 @@ Maintenance runs on a shorter cycle than carbon-tank systems: media rated for 16
 Upfront is about ~$2,099, with media replacement around $260 per year. Over five years that's roughly ~$3,399 plus installation — the highest total in this guide. If the certification is what you need, that's the honest price of it; if it isn't, cheaper systems get you chlorine reduction for far less.
 
 [Check the current price on Amazon](amazon:aquasana-healthshield) — ~$2,099 is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The Aquasana HealthShield typically sells for ~$2,099–$2,099. With ~$200/year upkeep, five-year ownership lands near ~$3,099 plus installation. The media is rated for 6 years or 600,000 gallons for the main tanks, and it's backed by a 10-year limited warranty.
+
+The 6 GPM rating covers 1–3 bathroom homes with typical simultaneous use. Whole-house pressure also depends on your plumbing and incoming pressure, so run your numbers through our [flow sizer](/tools/flow-sizer/) before committing.
+
+If this one isn't quite right: the [Aquasana Rhino EQ-1000](/filters/aquasana-rhino-eq1000/) Aquasana's cheaper system with less certification muscle; the [SpringWell LCR](/filters/springwell-lcr/) a certified lead-and-cyst specialist at a lower price. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
