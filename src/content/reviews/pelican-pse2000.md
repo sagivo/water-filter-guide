@@ -36,3 +36,11 @@ One install covers both functions, which is the real pitch versus buying a filte
 Upfront ~$2,599–$3,099 with about $60 per year in upkeep: five-year ownership lands near ~$2,899–$3,399 before installation. Expensive as a filter alone — reasonable as a filter-plus-softener-alternative, since a separate quality softener would cost as much again. The honest comparison is combo-vs-combo in the [cost calculator](/tools/cost-calculator/).
 
 [Check the current price on Amazon](amazon:pelican-pse2000) — ~$2,599–$3,099 is approximate, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The Pelican PSE2000 typically sells for ~$2,599–$3,099. With ~$250/year upkeep, five-year ownership lands near ~$3,849 plus installation. The media is rated for media rated ~5 years / 1.3M gallons; sediment pre-filter every 6–9 months, and it's backed by a limited lifetime warranty on tanks with a 5-year performance guarantee.
+
+At 15 GPM it fits larger homes and 4+ bathroom households with heavy simultaneous use; if your peak demand is higher, size up rather than hope — an undersized system drops pressure when showers, laundry, and irrigation run together.
+
+If this one isn't quite right: the [Kind Water E-1000](/filters/kind-e1000/) a cheaper filter-only system if you don't need conditioning; the [SpringWell CF1](/filters/springwell-cf1/) a filter-only tank with the lowest long-run cost. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
