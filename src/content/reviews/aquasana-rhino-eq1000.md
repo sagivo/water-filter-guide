@@ -36,3 +36,13 @@ Main-line install, and as a dual-tank plus post-filter setup it's a bit more inv
 Pricing swings: ~$999–$1,998 depending on bundle (UV/conditioner options drive the spread). Add roughly $120 per year for pre/post filters, so five-year ownership lands somewhere between ~$1,599 and ~$2,598 before installation. Shop the exact bundle you need — the range is wide enough that like-for-like comparison matters.
 
 [Check the current price on Amazon](amazon:aquasana-rhino-eq1000) — pricing swings between ~$999 and ~$1,998 by bundle, so check the current price before you buy.
+
+## Ownership math and close alternatives
+
+The Aquasana Rhino EQ-1000 typically sells for ~$999–$1,998. With ~$120/year upkeep, five-year ownership lands near ~$1,599 plus installation. The media is rated for 10 years or 1,000,000 gallons for the main tank, and it's backed by a 10-year limited warranty with a 90-day guarantee.
+
+The 7 GPM rating covers 1–3 bathroom homes with typical simultaneous use. Whole-house pressure also depends on your plumbing and incoming pressure, so run your numbers through our [flow sizer](/tools/flow-sizer/) before committing.
+
+If this one isn't quite right: the [SpringWell CF1](/filters/springwell-cf1/) lower yearly upkeep and a lifetime warranty; the [iSpring WGB32B](/filters/ispring-wgb32b/) a budget cartridge system for similar city-water coverage. Our [2026 roundup](/posts/best-whole-house-water-filters-2026/) lines up all 12 systems side by side, and our [how-to-choose guide](/posts/how-to-choose-whole-house-water-filter/) walks through the five decisions that matter most.
+
+**Worth confirming first:** your main water line diameter, since these systems are designed around 1-inch plumbing and downsizing costs you flow rate; whether you want a bypass loop installed (recommended — it keeps water running during filter changes); and physical space near the main shutoff. Get these right and installation is straightforward.
